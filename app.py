@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
+from xgboost import XGBRegressor
 
 model = pickle.load(open('./xgbmodel.pkl', 'rb'))
 
