@@ -1,4 +1,4 @@
-pandas
-numpy
-streamlit==0.57.3
+streamlit
 pickle
+pandas
+nump
