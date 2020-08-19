@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from xgboost import XGBRegressor
 
-model = pickle.load(open('./xgbmodel.json', 'rb'))
+model = xgboost.load_model('./xgbmodel.json')
 
 def run():
 
