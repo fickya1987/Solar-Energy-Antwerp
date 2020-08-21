@@ -3,10 +3,9 @@ import pickle
 import pandas as pd
 import numpy as np
 from xgboost import XGBRegressor
-from xgboost import Booster
+from xgboost import Booster as bst
 
-bst = Booster()
-model = bst.load_model(model_file = './xgbmodel.json')  # load data
+model = bst.load_model('./xgbmodel.json')  # load data
 
 def run():
 
