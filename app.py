@@ -1,9 +1,12 @@
 import streamlit as st
 import pickle
+import jdk
 import pandas as pd
 import numpy as np
 from xgboost import XGBRegressor
 from pypmml import Model
+
+jdk.install('7')
 
 model = Model.load('./xgbmodel.xml')  # load data
 
