@@ -6,6 +6,8 @@ import numpy as np
 from xgboost import XGBRegressor
 from pypmml import Model
 
+jdk.install('11', jre=True)
+
 model = Model.load('./xgbmodel.xml')  # load data
 
 def run():
