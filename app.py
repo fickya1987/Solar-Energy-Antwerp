@@ -5,7 +5,7 @@ import numpy as np
 from xgboost import XGBRegressor
 from pypmml import Model
 
-model = Model.load('./xgbmodel.json')  # load data
+model = Model.load('./xgbmodel.xml')  # load data
 
 def run():
 
