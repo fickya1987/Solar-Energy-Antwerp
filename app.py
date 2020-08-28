@@ -1,14 +1,17 @@
 import streamlit as st
 import pickle
-import jdk
+from pycaret.regression import load_model, predict_model
 import pandas as pd
 import numpy as np
 from xgboost import XGBRegressor
 from pypmml import Model
 
-jdk.install('11', jre=True)
+model = load_model('deployment_1')
 
-model = Model.load('./xgbmodel.xml')  # load data
+def predict(model, input_df):
+    predictions_df = predict_model(estimator=model, data=input_df)
+    predictions = predictions_df['Label'][0]
+    return predictions
 
 def run():
 
@@ -45,11 +48,10 @@ def run():
 
         input_dict = {'month' : month, 'day' : day, 'temp' : temp, 'weather' : weather, 'wind' : wind, 'humidity' : humidity, 'barometer' : barometer, 'visibility' : visibility}
         input_df = pd.DataFrame([input_dict])
-        input_df = scaler.fit_transform(input_df)
 
         if st.button("Predict"):
 
-            output = model.predict(input_df)
+            output = predict(model=model, input_df=input_df)
             output = str(output)+'kWs'
 
         st.success('The output is {}'.format(output))
@@ -60,7 +62,7 @@ def run():
 
         if file_upload is not None:
             data = pd.read_csv(file_upload)
-            predictions = model.predict(data)
+            predictions = predict_model(estimator=model,data=data)
             st.write(predictions)
 
 if __name__ == '__main__':
