@@ -15,9 +15,8 @@ def run():
 
     from PIL import Image
     image = Image.open('panels.jpeg')
-    image_playground = Image.open('playground.jpeg')
 
-    st.image(image,use_column_width=False)
+    st.image(image,use_column_width=True)
 
     add_selectbox = st.sidebar.selectbox(
     "Would you like to predict a single day or upload a .csv?",
@@ -27,12 +26,13 @@ def run():
     st.sidebar.info('Please refer to the GitHub repo to view the Weather Mapping for the "Weather Condition" input')
     st.sidebar.success('https://tmplayground.com')
     st.sidebar.success('https://github.com/thabied')
-    st.sidebar.image(image_playground)
+    st.sidebar.image('https://media.giphy.com/media/l1J9Nd2okdiIq7K9O/giphy.gif',use_column_width=True)
 
     st.title("Solar Power Prediction Application")
 
     if add_selectbox == 'Single Day':
 
+        year = st.number_input('Year', min_value=1990, max_value=2550, value=2014)
         month = st.number_input('Month', min_value=1, max_value=12, value=5)
         day = st.number_input('Day', min_value=1, max_value=31, value=16)
         temp = st.number_input('Temperature (celsius)', min_value=-60, max_value=50, value=25)
@@ -44,7 +44,7 @@ def run():
 
         output=""
 
-        input_dict = {'month' : month, 'day' : day, 'temp' : temp, 'weather' : weather, 'wind' : wind, 'humidity' : humidity, 'barometer' : barometer, 'visibility' : visibility}
+        input_dict = {'year' : year, 'month' : month, 'day' : day, 'temp' : temp, 'weather' : weather, 'wind' : wind, 'humidity' : humidity, 'barometer' : barometer, 'visibility' : visibility}
         input_df = pd.DataFrame([input_dict])
 
         if st.button("Predict"):
