@@ -35,10 +35,10 @@ def run():
         year = st.number_input('Year', min_value=1990, max_value=2550, value=2014)
         month = st.number_input('Month', min_value=1, max_value=12, value=5)
         day = st.number_input('Day', min_value=1, max_value=31, value=16)
-        temp = st.number_input('Temperature (celsius)', min_value=-60, max_value=50, value=25)
+        temp = st.slider('Temperature (celsius)', min_value=-0, max_value=50, value=18, steps=1)
         weather = st.number_input('Weather Condition', min_value=1, max_value=130, value=50)
         wind = st.number_input('Wind (km/h)', min_value=1, max_value=50, value=14)
-        humidity = st.number_input('Humidity (%)', min_value=1, max_value=100, value=60)
+        humidity = st.slider('Humidity (%)', min_value=0, max_value=100, value=0, step=1)
         barometer = st.number_input('Atmospheric Pressure (milibar)', min_value=1, max_value=2000, value=25)
         visibility = st.number_input('Visibility (km)', min_value=0, max_value=40, value=25)
 
