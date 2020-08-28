@@ -1,6 +1,7 @@
-# Solar Energy Antwerp
+# Solar Energy in Antwerp, Belgium
 
  Predicting the Solar Energy production in Antwerp, Belgium
+ 
  App link: https://solar-energy-prediction.herokuapp.com
  
  Power Production data: https://www.kaggle.com/fvcoppen/solarpanelspower
