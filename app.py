@@ -3,8 +3,6 @@ import pickle
 from pycaret.regression import load_model, predict_model
 import pandas as pd
 import numpy as np
-from xgboost import XGBRegressor
-from pypmml import Model
 
 model = load_model('deployment_1')
 
