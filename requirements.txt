@@ -1,4 +1,4 @@
 numpy
 pandas
-streamlit==0.62.0
-pycaret==1.0.0
+streamlit
+pycaret
